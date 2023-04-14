@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import { useState } from "react";
+import NewItemPage from "./pages/ItemPages/NewItemPage";
+import EditItemPage from "./pages/ItemPages/EditItemPage";
 
 function App() {
+  const [editID, setEditID] = useState('');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage setEditID={setEditID}/>}></Route>
+        <Route path="/novo-item" element={<NewItemPage />}></Route>
+        <Route path="/editar-item" element={<EditItemPage editID={editID}/>}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
