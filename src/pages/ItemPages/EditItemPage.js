@@ -39,7 +39,7 @@ export default function EditItemPage({editID}){
                     <Link to="/">
                         
                     </Link>
-                    Novo Item
+                    Editar Item
                 </Header>
                 <Body>
                     <FormContainer onSubmit={addNewItem}>
